@@ -87,6 +87,6 @@ app.get("/audio/status/:projectId", async (req, res) => {
   }
 });
 
-app.listen(8081, async () => {
+app.listen(8080, async () => {
     console.log("Server Started");
 });
