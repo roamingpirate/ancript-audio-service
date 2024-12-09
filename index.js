@@ -46,8 +46,6 @@ app.post("/audio/create/:projectId", async (req, res) => {
     const projectId=req.params.projectId;
     const existingJob = await audioQueue.getJob(projectId);
 
-    res.status(201).json({ message: "Audio job is being created", projectId: projectId });
-
     if (existingJob) {
         console.log(`Waiting for the job with projectId: ${projectId} to complete...`);
         await existingJob.finished();
@@ -57,6 +55,7 @@ app.post("/audio/create/:projectId", async (req, res) => {
     }
 
     const job = await audioQueue.add({},{jobId:projectId});
+    res.status(201).json({ message: "Audio job is being created", projectId: projectId });
 
   } catch (error) {
     console.error("Error adding job:", error);
@@ -87,6 +86,10 @@ app.get("/audio/status/:projectId", async (req, res) => {
   }
 });
 
-app.listen(8080, async () => {
+app.get("/hi", (req,res) => {
+  res.send("hi");
+})
+
+app.listen(8081, async () => {
     console.log("Server Started");
 });
