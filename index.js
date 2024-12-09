@@ -15,7 +15,7 @@ const corsOptions = {
 const app = express();
 app.use(cors(corsOptions));
 const redisOptions = {
-  redis: { host: '127.0.0.1', port: 6379 },
+  redis: { host: '10.161.9.27', port: 6379 },
 };
 
 const audioQueue = new Bull("audioQueue", {
