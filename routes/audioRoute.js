@@ -4,7 +4,7 @@ import { dirname, join } from 'path';
 import { FixedThreadPool, PoolEvents, availableParallelism } from 'poolifier'
 
 // a fixed worker_threads pool
-const pool = new FixedThreadPool(4, './audioCreateWorker.js', {
+const pool = new FixedThreadPool(availableParallelism(), './audioCreateWorker.js', {
   onlineHandler: () => console.info('worker is online'),
   errorHandler: e => console.error(e),
 })

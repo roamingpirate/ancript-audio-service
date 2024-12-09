@@ -26,7 +26,7 @@ const audioQueue = new Bull("audioQueue", {
     },
   });
 
-audioQueue.process(5, async (job) => {
+audioQueue.process(async (job) => {
   try {
     console.log(`Processing audio with projectId: ${job.id}`);
     console.log("Creating Audio.");
