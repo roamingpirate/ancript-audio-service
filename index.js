@@ -7,7 +7,9 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const corsOptions = {
-  origin: ['https://ancript.com', 'http://localhost:5173'], 
+
+  origin: ['https://ancript.com', 'http://localhost:5173','https://192.168.0.148:5173'], 
+
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true, 
 };
@@ -90,6 +92,6 @@ app.get("/hi", (req,res) => {
   res.send("hi");
 })
 
-app.listen(8080, async () => {
+app.listen(8081, async () => {
     console.log("Server Started");
 });
